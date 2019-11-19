@@ -7,7 +7,7 @@ module.exports = {
 
 
 function getStories(){
-    return db('locationsStories as LS')
+    return db('location_stories as LS')
     .join("stories as S", "LS.story_id", "S.id")
     .join("locations as L", "LS.location_id", "L.id")
     .join("photos as P", "P.story_id", "S.id")
@@ -15,17 +15,18 @@ function getStories(){
       "S.title",
       "S.story",
       "S.date_trip",
-      "S.created_at",
       "L.city",
       "L.country",
-      "P.url",
+      "P.photo_url",
       "P.description"
-    );
+    )
+    .where("S.id", id)
+      .first();
 
 }
 
 function getStoriesById(id) {
-    return db("locationsStories as LS")
+    return db("location_stories as LS")
       .join("stories as S", "LS.story_id", "S.id")
       .join("locations as L", "LS.location_id", "L.id")
       .join("photos as P", "P.story_id", "S.id")
@@ -34,10 +35,9 @@ function getStoriesById(id) {
         "S.title",
         "S.story",
         "S.date_trip",
-        "S.created_at",
         "L.city",
         "L.country",
-        "P.url",
+        "P.photo_url",
         "P.description"
       )
       .where("S.id", id)
