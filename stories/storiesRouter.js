@@ -1,9 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const stories = require('./helpersmodels');
+const Stories = require('./helpersmodels');
 
 
-const middleware = require('./helpers/helpers')
+const middleware = require('./helpers/helpers');
 
 //Testing endpoint
 

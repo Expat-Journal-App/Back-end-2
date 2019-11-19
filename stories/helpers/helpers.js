@@ -1,4 +1,4 @@
-const Stories = require("..helpersmodels/helpersmodels");
+const Stories = require('../helpersmodels');
 
 module.exports = {
   checkValidtyId

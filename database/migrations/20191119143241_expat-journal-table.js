@@ -46,6 +46,14 @@ exports.up = function(knex) {
            .inTable('stories')
            .onDelete('CASCADE')
            .onUpdate('CASCADE')
+     table
+           .integer("location_id")
+           .unsigned()
+           .notNullable()
+           .references("id")
+           .inTable("locations")
+           .onUpdate("CASCADE")
+           .onDelete("CASCADE");
   })
 };
 
