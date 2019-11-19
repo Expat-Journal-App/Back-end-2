@@ -17,8 +17,6 @@ function getStories(){
 }
 
 
-
-
 function getStoriesById(id) {
     return db("location_stories as LS")
       .join("stories as S", "LS.story_id", "S.id")
@@ -36,4 +34,10 @@ function getStoriesById(id) {
       )
       .where("S.id", id)
       .first();
-  }
+}
+
+function updateStories(id, changes){
+
+}
+
+//put, delete, edit 
