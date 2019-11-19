@@ -30,5 +30,7 @@ router.get("/test", (req, res) => {
   router.get("/:id", middleware.checkValidtyId, (req, res) => {
     res.status(200).json(req.data);
   });
+
+
   
   module.exports = router;
