@@ -46,6 +46,21 @@ router.get("/test", (req, res) => {
   });
  
 
+  //DEL endpoint to delete existed story
+
+  router.delete("/:id", middleware.checkValidtyId, (req, res) => {
+    const { id } = req.params;
+    Stories.deleteStory(id)
+      .then(story =>
+        res.status(200).json({ message: `Story ${id} has successfully been deleted` })
+      )
+      .catch(error =>
+        res
+          .status(500)
+          .json({ message: `unable to delete story ${id} due to ${error.message}` })
+      );
+  });
+
 
   
   module.exports = router;
