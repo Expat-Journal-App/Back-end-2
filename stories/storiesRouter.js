@@ -31,6 +31,11 @@ router.get("/test", (req, res) => {
     res.status(200).json(req.data);
   });
 
+  //Put request to post request
+
+  
+ 
+
 
   
   module.exports = router;
