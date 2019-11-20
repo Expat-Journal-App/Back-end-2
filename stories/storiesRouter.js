@@ -33,7 +33,17 @@ router.get("/test", (req, res) => {
 
   //Put request to post request
 
-  
+  router.post("/", (req, res) => {
+    Stories.addStory(req.body)
+      .then(data => {
+        res.status(200).json(data);
+      })
+      .catch(error => {
+        res
+          .status(500)
+          .json({ message: `Unable to post story due to ${error.message}` });
+      });
+  });
  
 
 
