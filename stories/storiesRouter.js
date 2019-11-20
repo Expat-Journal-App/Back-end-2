@@ -25,11 +25,26 @@ router.get("/test", (req, res) => {
       });
   });
 
-  //Get by ID request
+  //Get by ID endpoint
 
   router.get("/:id", middleware.checkValidtyId, (req, res) => {
     res.status(200).json(req.data);
   });
+
+  //POST enpoint to post new story!
+
+  router.post("/", (req, res) => {
+    Stories.addStory(req.body)
+      .then(data => {
+        res.status(200).json(data);
+      })
+      .catch(error => {
+        res
+          .status(500)
+          .json({ message: `Unable to post story due to ${error.message}` });
+      });
+  });
+ 
 
 
   
