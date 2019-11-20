@@ -25,13 +25,13 @@ router.get("/test", (req, res) => {
       });
   });
 
-  //Get by ID request
+  //Get by ID endpoint
 
   router.get("/:id", middleware.checkValidtyId, (req, res) => {
     res.status(200).json(req.data);
   });
 
-  //Put request to post request
+  //POST enpoint to post new story!
 
   router.post("/", (req, res) => {
     Stories.addStory(req.body)

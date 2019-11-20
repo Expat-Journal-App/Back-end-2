@@ -13,7 +13,7 @@ function getStories(){
     .join('locations as L', 'LS.location_id', 'L.id')
     .join("photos as P", "P.story_id", "S.id")
   
-    .select('S.id','S.title', 'S.story', 'S.date_trip','L.city', 'L.country', 'P.photo_url', 'P.description')
+    .select('S.id','S.title', 'S.story', 'S.date_trip','S.date_posting','L.city', 'L.country', 'P.photo_url', 'P.description')
 
 }
 
@@ -39,7 +39,7 @@ function getStoriesById(id) {
 
 function addPhoto(story, storyId) {
   return db("photos").insert({
-    url: story.url,
+    photo_url: story.photo_url,
     description: story.description,
     story_id: storyId
   });
@@ -66,7 +66,8 @@ function addStory(story) {
     .insert({
       title: story.title,
       story: story.story,
-      date_trip: story.date_trip
+      date_trip: story.date_trip,
+      date_posting: story.date_posting
     })
     .then(storyId => {
       const newPhoto = addPhoto(story, storyId[0]);
