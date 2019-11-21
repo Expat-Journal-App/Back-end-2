@@ -4,14 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "node index.js"
+    "test": "cross-env DB_ENV=testing jest --watchAll"
   },
-
-  "engines": {
-    "node": "v10.16.1",
-    "npm": "6.9.0"
-  },
-
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Expat-Journal-App/Back-end-Amira.git"
@@ -30,6 +24,7 @@
     "helmet": "^3.21.2",
     "knex": "^0.20.2",
     "knex-cleaner": "^1.3.0",
+    "pg": "^7.14.0",
     "sqlite3": "^4.1.0"
   },
   "devDependencies": {
