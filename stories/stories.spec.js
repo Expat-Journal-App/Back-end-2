@@ -1,5 +1,7 @@
 const request = require('supertest');
 const server = require('../api/server');
+const stories = require('./helpersmodels');
+const db = require('../database/db-config');
 
 
 describe("stories endpoint", () => {
@@ -9,3 +11,8 @@ describe("stories endpoint", () => {
             .expect("Content-Type", /json/);
     });
   });
+
+  
+
+
+

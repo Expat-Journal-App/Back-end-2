@@ -83,22 +83,6 @@ function deleteStory(id) {
 }
 
 
-// function editStory(id, changes) {
-//   return db('stories').where({ id }).update(changes)
-// }
-
-// function editStory(id, changes ) {
-//   return db("stories")
-//     .where('id', id )
-//     .update(changes)
-//     .then(data => {
-//       return getStoriesById(story_id);
-//     })
-//     .catch(error => {
-//       console.log(error);
-//     });
-// }
-
 function editStory(id, story) {
   return db("stories")
     .where("id", Number(id))
