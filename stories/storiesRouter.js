@@ -27,7 +27,7 @@ router.get("/test", (req, res) => {
 
   //Get by ID endpoint
 
-  router.get("/:id", middleware.checkValidtyId, (req, res) => {
+  router.get("/:id", middleware.validityCheck, (req, res) => {
     res.status(200).json(req.data);
   });
 
@@ -48,7 +48,7 @@ router.get("/test", (req, res) => {
 
   //DEL endpoint to delete existed story
 
-  router.delete("/:id", middleware.checkValidtyId, (req, res) => {
+  router.delete("/:id", middleware.validityCheck, (req, res) => {
     const { id } = req.params;
     Stories.deleteStory(id)
       .then(story =>
@@ -60,6 +60,25 @@ router.get("/test", (req, res) => {
           .json({ message: `unable to delete story ${id} due to ${error.message}` })
       );
   });
+
+  
+  
+  router.put('/:id', middleware.validityCheck, (req, res) => {
+    const { id } = req.params;
+    const story = req.body;
+
+    Stories.editStory(id, story)
+    .then(editPost => {
+        res.status(201).json({message: `Story ${id} has been updated `, editPost})
+    })
+    .catch(error => {
+        res.status(500).json({ message: `Story ${id} update unsuccessful because ${error}`})
+    })
+})
+
+
+
+
 
 
   

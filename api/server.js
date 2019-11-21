@@ -12,9 +12,9 @@ server.use(express.json());
 
 
 
-server.get('/', (req,res) => {
-    res.send('Server is working fine!')
-})
+server.get('/', (req, res) => {
+    res.status(200).json({ api: 'running' });
+  });
 
 server.use('/api/stories', storiesRouter);
 

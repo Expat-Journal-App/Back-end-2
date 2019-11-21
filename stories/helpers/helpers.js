@@ -1,10 +1,10 @@
 const Stories = require('../helpersmodels');
 
 module.exports = {
-  checkValidtyId
+  validityCheck
 };
 
-function checkValidtyId(req, res, next) {
+function validityCheck(req, res, next) {
   const { id } = req.params;
   Stories.getStoriesById(id)
     .then(data => {
